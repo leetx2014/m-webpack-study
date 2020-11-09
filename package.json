@@ -1,0 +1,19 @@
+{
+  "name": "m-webpack-study",
+  "version": "1.0.0",
+  "description": "webpack study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leetx2014/m-webpack-study.git"
+  },
+  "author": "leetx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leetx2014/m-webpack-study/issues"
+  },
+  "homepage": "https://github.com/leetx2014/m-webpack-study#readme"
+}
