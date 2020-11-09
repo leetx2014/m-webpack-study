@@ -4,7 +4,8 @@
   "description": "webpack study",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/leetx2014/m-webpack-study/issues"
   },
-  "homepage": "https://github.com/leetx2014/m-webpack-study#readme"
+  "homepage": "https://github.com/leetx2014/m-webpack-study#readme",
+  "devDependencies": {
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
 }
