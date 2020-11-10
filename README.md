@@ -13,5 +13,8 @@ less less-loader
 sass sass-loader
 postcss postcss-loader (以及相关插件 autoprefixer、csnano)
 
+file-loader
+url-loader
+
 html-webpack-plugin
 mini-css-extract-plugin

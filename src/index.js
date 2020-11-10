@@ -1,3 +1,6 @@
-import './index.less';
+import css from './index.less';
+import imgSrc from './webpackImg.jpeg';
 
-console.log('index');
+// const image = new Image();
+// image.src = imgSrc;
+// document.getElementById("app").appendChild(image);

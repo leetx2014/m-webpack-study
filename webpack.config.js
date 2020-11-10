@@ -2,6 +2,7 @@
 const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -10,18 +11,27 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"), // 绝对路径
   },
   mode: "development",
-  resolveLoader: {
-    modules: ["node_modules", "myLoaders"]
-  },
   module: {
     rules: [
       {
         test: /\.less$/,
         use: [
-          "m-style-loader",
-          "m-css-loader",
-          "m-less-loader"
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "less-loader"
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "images/",
+            publicPath: "../images",
+            limit: 1024 * 3, // 阈值 超过阈值的图片会独立文件，没有超过会处理成base64
+          }
+        }
       }
     ]
   },
@@ -30,6 +40,9 @@ module.exports = {
       title: "MyApp",
       template: "./src/index.html",
       filename: "index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "css/[name].css",
     })
   ]
 };
