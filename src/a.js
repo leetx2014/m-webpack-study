@@ -1,1 +1,0 @@
-export const str = 'i am a';

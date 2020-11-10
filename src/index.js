@@ -1,4 +1,3 @@
-import { str } from './a';
-import './index.css';
+import './index.less';
 
-console.log("index.js", str);
+console.log('index');
