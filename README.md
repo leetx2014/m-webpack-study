@@ -18,3 +18,4 @@ url-loader
 
 html-webpack-plugin
 mini-css-extract-plugin
+clean-webpack-plugin
