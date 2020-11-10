@@ -1,6 +1,11 @@
 import css from './index.less';
-import imgSrc from './webpackImg.jpeg';
 
-// const image = new Image();
-// image.src = imgSrc;
-// document.getElementById("app").appendChild(image);
+import axios from 'axios';
+
+
+axios.get("/api/info").then(res => {
+  console.log('====================================');
+  console.log(res);
+  console.log('====================================');
+});
+

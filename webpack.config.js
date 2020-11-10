@@ -11,6 +11,17 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"), // 绝对路径
   },
   mode: "development",
+  devtool: "inline-source-map", //source-map inline-source-map cheap-source-map
+  devServer: {
+    contentBase: "./dist",
+    open: true,
+    port: 8080,
+    proxy: {
+      "/api": {
+        target: "http://localhost:9092"
+      }
+    }
+  },
   module: {
     rules: [
       {
