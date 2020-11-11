@@ -1,5 +1,6 @@
 const path = require("path");
 const glob = require("glob");
+const webpack = require("webpack");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -43,6 +44,8 @@ module.exports = {
     contentBase: "./dist",
     open: true,
     port: 8080,
+    hot: true,
+    hotOnly: true,
     proxy: {
       "/api": {
         target: "http://localhost:9092"
@@ -78,6 +81,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin()
   ]
 };
