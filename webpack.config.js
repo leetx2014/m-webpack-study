@@ -6,6 +6,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+const FileListPlugin = require("./myPlugins/file-list-plugin");
+
 /**
  * 多页面打包
  */
@@ -88,5 +90,8 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
+    new FileListPlugin({
+      name: "leetx",
+    }),
   ],
 };
