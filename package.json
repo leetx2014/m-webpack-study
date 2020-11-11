@@ -19,9 +19,15 @@
     "url": "https://github.com/leetx2014/m-webpack-study/issues"
   },
   "homepage": "https://github.com/leetx2014/m-webpack-study#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
     "autoprefixer": "^10.0.1",
     "axios": "^0.21.0",
+    "babel-loader": "^8.2.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
     "cssnano": "^4.1.10",

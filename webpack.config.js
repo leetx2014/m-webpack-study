@@ -14,17 +14,19 @@ const setMPA = () => {
   const htmlWebpackPlugins = [];
 
   const entryFiles = glob.sync(path.join(__dirname, "./src/pages/*/index.js"));
-  entryFiles.map(entryFile => {
+  entryFiles.map((entryFile) => {
     const entryFileMatch = entryFile.match(/src\/pages\/(.*)\/index\.js$/);
     const pageName = entryFileMatch[1];
     entry[pageName] = entryFile;
-    htmlWebpackPlugins.push(new HtmlWebpackPlugin({
-      // template: `./src/pages/${pageName}/index.html`,
-      template: `./src/pubilc/index.html`,
-      filename: `${pageName}.html`,
-      title: pageName,
-      chunks: [pageName]
-    }));
+    htmlWebpackPlugins.push(
+      new HtmlWebpackPlugin({
+        // template: `./src/pages/${pageName}/index.html`,
+        template: `./src/pubilc/index.html`,
+        filename: `${pageName}.html`,
+        title: pageName,
+        chunks: [pageName],
+      })
+    );
   });
 
   return { entry, htmlWebpackPlugins };
@@ -48,19 +50,15 @@ module.exports = {
     hotOnly: true,
     proxy: {
       "/api": {
-        target: "http://localhost:9092"
-      }
-    }
+        target: "http://localhost:9092",
+      },
+    },
   },
   module: {
     rules: [
       {
         test: /\.less$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "less-loader"
-        ]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -71,10 +69,17 @@ module.exports = {
             outputPath: "images/",
             // publicPath: "./images",
             limit: 1024 * 3, // 阈值 超过阈值的图片会独立文件，没有超过会处理成base64
-          }
-        }
-      }
-    ]
+          },
+        },
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+    ],
   },
   plugins: [
     ...htmlWebpackPlugins,
@@ -82,6 +87,6 @@ module.exports = {
       filename: "css/[name].css",
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin()
-  ]
+    new CleanWebpackPlugin(),
+  ],
 };

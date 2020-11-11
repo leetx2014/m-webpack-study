@@ -12,6 +12,15 @@ const imgTag = new Image();
 imgTag.src = imgSrc;
 document.getElementById("app").appendChild(imgTag);
 
+
+const arr = [new Promise(() => {}), new Promise(() => {})];
+arr.map(item => {
+  console.log(item);
+});
+
+
+// ==========================================
+
 const btn = document.createElement("button");
 btn.innerHTML = "新增";
 document.body.appendChild(btn);
