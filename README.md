@@ -45,6 +45,26 @@ webpack 支持零配置，也可使用默认配置文件：webpack.config.js 进
 
 
 
+### webpack 打包原理分析
+
+1. 接收 webpack 配置进行读取
+    - 入口：从那个文件开始分析
+    - 出口：构建生成的文件配置信息
+2. 入口函数 run 开始编译，生成 chunk
+    - 从文件入口开始，递归的方式处理依赖模块
+    - 处理这个文件的内容
+      - 借助 babel 帮我们把内容转换为 AST，提取模块路径
+      - 借助 babel 进行语法转译
+    - 生成 chunk（包含依赖关系）
+3. 创建生成 bundle 文件
+    - 依赖图谱
+    - webpack 启动函数
+      - require
+      - exports
+
+
+
+
 
 
 
